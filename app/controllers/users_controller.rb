@@ -5,7 +5,7 @@ class UsersController < ApplicationController
    
    def create
         @user = User.create(user_params)
-        # signin(@user)
+         signin(@user)
         # binding.pry
         redirect_to user_path(@user.id)
    end
