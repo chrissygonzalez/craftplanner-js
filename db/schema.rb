@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_203320) do
+ActiveRecord::Schema.define(version: 2018_10_29_014321) do
+
+  create_table "craft_materials", force: :cascade do |t|
+    t.integer "craft_id"
+    t.integer "material_id"
+    t.integer "quantity"
+  end
 
   create_table "crafts", force: :cascade do |t|
     t.string "title"
@@ -30,9 +36,10 @@ ActiveRecord::Schema.define(version: 2018_10_24_203320) do
     t.integer "user_id"
   end
 
-  create_table "supplies", force: :cascade do |t|
-    t.integer "craft_id"
+  create_table "user_materials", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "material_id"
+    t.integer "quantity"
   end
 
   create_table "users", force: :cascade do |t|
