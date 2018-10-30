@@ -1,0 +1,10 @@
+<%= link_to "Home", user_path(current_user) %>
+<%= link_to "Crafts", crafts_path %>
+<%= link_to "Log Out", logout_path, method: "delete" %>
+<h1>Materials</h1>
+
+<ul>
+<% @materials.each do |m| %>
+    <li><%= m.name %></li>
+<% end %>
+</ul>
