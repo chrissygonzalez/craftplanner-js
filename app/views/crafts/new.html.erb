@@ -1,0 +1,20 @@
+<h1>New Craft</h1>
+
+<%= form_for @craft do |f| %>
+  <%= f.label "Title" %>
+  <%= f.text_field :title %><br>
+  <%= f.label "Description" %>
+  <%= f.text_area :description %><br>
+  <%= f.label "Method" %>
+  <%= f.text_field :method %><br>
+  <%= f.label "Source" %>
+  <%= f.text_field :source %><br>
+  Materials<br>
+  <%= f.label "Choose a material" %>
+  <%= f.select :material_ids, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %>
+  <%= f.fields_for :materials, @craft.materials.build do |materials_fields| %>
+  <%=     f.label "Add a new material" %>
+  <%=     materials_fields.text_field :name %><br>
+  <% end %>
+  <%= f.submit %>
+<% end %>
