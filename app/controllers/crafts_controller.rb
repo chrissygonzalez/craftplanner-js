@@ -14,6 +14,8 @@ class CraftsController < ApplicationController
     end
     
     def show
+        @project = Project.new
+        @user = current_user
         @craft = Craft.find(params[:id])
     end
     
@@ -28,6 +30,5 @@ class CraftsController < ApplicationController
     
     def craft_params
         params.require(:craft).permit(:title, :description, :method, :source, material_ids:[], materials_attributes: [:name])
-        # params.require(:craft).permit(:title, :description, :material_ids[], :method, :source, :materials_attributes[:name])
     end
 end

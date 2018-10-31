@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     resources :users, only: [:new, :create, :show]
     resources :crafts, only: [:index, :new, :create, :show]
     resources :materials, only: [:index, :new, :create, :show]
+    resources :projects, only: [:index, :new, :create, :show]
 end

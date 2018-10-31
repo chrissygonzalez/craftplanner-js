@@ -3,10 +3,10 @@
 <%= link_to "Log Out", logout_path, method: "delete" %>
 <h1>Crafts</h1>
 
-<%= link_to "New Craft", new_craft_path %>
-
 <ul>
 <% @crafts.each do |c| %>
     <li><%= link_to c.title, craft_path(c.id) %></li>
 <% end %>
 </ul>
+
+<%= link_to "New Craft", new_craft_path %>

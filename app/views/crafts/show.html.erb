@@ -7,3 +7,9 @@
 <p style="background-color: #eaeaea"><%= @craft.method %></p>
 <%= link_to @craft.source, @craft.source %>
 <p><%= @craft.description %></p>
+
+<%= form_for @project do |f| %>
+<%=     f.hidden_field :craft_id, { :value => @craft.id } %>
+<%=     f.hidden_field :user_id, { :value => @user.id } %>
+<%=     f.submit "Start this project" %>
+<% end %>
