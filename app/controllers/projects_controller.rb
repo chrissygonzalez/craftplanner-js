@@ -5,6 +5,8 @@ class ProjectsController < ApplicationController
 
     def create
         @project = Project.create(project_params)
+        @project.start_date = DateTime.now
+        @project.save
         # @message = @ride.take_ride
         # flash[:notice] = @message
         redirect_to user_path(@project.user.id)
