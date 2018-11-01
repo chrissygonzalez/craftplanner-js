@@ -3,10 +3,4 @@
 <%= link_to "Log Out", logout_path, method: "delete" %>
 <h1>Show page for <%= @user.name %>!</h1>
 
-<h2>Current Projects</h2>
-
-<ul>
-<% @projects.each do |p| %>
-    <li><%= link_to p.craft.title, craft_path(p.craft.id) %> | Started on <%= p.start_date.strftime("%A, %b %e, %Y") %></li>
-<% end %>
-</ul>
+<%= link_to "My projects", user_projects_path(current_user.id) %>

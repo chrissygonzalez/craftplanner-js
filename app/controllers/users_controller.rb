@@ -15,6 +15,7 @@ class UsersController < ApplicationController
        @projects = Project.all
    end
    
+   
    private
    
    def user_params

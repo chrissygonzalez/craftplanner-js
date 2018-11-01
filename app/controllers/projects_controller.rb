@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
    def new
-       @project = Project.new
+       @project = Project.new(user_id: current_user.id)
+   end
+   
+   def index
+       @projects = User.find(current_user.id).projects
    end
 
     def create
@@ -9,7 +13,12 @@ class ProjectsController < ApplicationController
         @project.save
         # @message = @ride.take_ride
         # flash[:notice] = @message
-        redirect_to user_path(@project.user.id)
+        redirect_to user_projects_path(@project.user.id)
+    end
+    
+    def delete
+        binding.pry
+        # project.find()
     end
     
     private

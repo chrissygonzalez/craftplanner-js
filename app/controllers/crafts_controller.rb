@@ -14,7 +14,7 @@ class CraftsController < ApplicationController
     end
     
     def show
-        @project = Project.new
+        @project = Project.new(user_id: current_user.id)
         @user = current_user
         @craft = Craft.find(params[:id])
     end
