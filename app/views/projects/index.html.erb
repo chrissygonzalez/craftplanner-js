@@ -8,6 +8,10 @@
 <ul>
 <% @projects.each do |p| %>
     <li><%= link_to p.craft.title, craft_path(p.craft.id) %> | Started on <%= p.start_date.strftime("%A, %b %e, %Y") %> | 
-    <%= link_to "End Project", user_projects_path, method: "delete" %> <%= link_to "Delete Project", user_projects_path, method: "delete" %></li>
+    <%= form_for p, :url => update_user_project_path(id: @user.id) do |f| %>
+    <%=     f.hidden_field :end_date, { :value => DateTime.now } %>
+    <%=     f.submit "End project" %>
+    <% end %>
+<%= link_to "Delete Project", user_projects_path, method: "delete" %></li>
 <% end %>
 </ul>

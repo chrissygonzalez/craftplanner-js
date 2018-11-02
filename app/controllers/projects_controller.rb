@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
    
    def index
        @projects = User.find(current_user.id).projects
+       @user = current_user
    end
 
     def create
@@ -14,6 +15,9 @@ class ProjectsController < ApplicationController
         # @message = @ride.take_ride
         # flash[:notice] = @message
         redirect_to user_projects_path(@project.user.id)
+    end
+    
+    def update
     end
     
     def delete
