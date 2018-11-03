@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_014321) do
+ActiveRecord::Schema.define(version: 2018_11_03_165404) do
 
   create_table "craft_materials", force: :cascade do |t|
     t.integer "craft_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_014321) do
     t.string "description"
     t.string "method"
     t.string "source"
+    t.integer "material_quantity"
   end
 
   create_table "materials", force: :cascade do |t|

@@ -17,6 +17,13 @@ class CraftsController < ApplicationController
         @project = Project.new(user_id: current_user.id)
         @user = current_user
         @craft = Craft.find(params[:id])
+        # @materials = 
+    end
+    
+    def destroy
+        @craft = Craft.find(params[:id])
+        @craft.delete
+        redirect_to crafts_path
     end
     
     def categories_attributes=(category_attributes)
@@ -29,6 +36,6 @@ class CraftsController < ApplicationController
     private
     
     def craft_params
-        params.require(:craft).permit(:title, :description, :method, :source, material_ids:[], materials_attributes: [:name])
+        params.require(:craft).permit(:title, :description, :method, :source, :material_quantity, material_ids:[], materials_attributes: [:name])
     end
 end

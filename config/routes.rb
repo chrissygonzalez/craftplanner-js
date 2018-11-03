@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         resources :projects, only: [:index, :new, :create, :show, :update, :destroy]
     end
     
-    resources :crafts, only: [:index, :new, :create, :show]
+    resources :crafts, only: [:index, :new, :create, :show, :destroy]
     resources :materials, only: [:index, :new, :create, :show]
 
 end

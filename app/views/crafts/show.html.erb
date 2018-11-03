@@ -7,9 +7,15 @@
 <p style="background-color: #eaeaea"><%= @craft.method %></p>
 <%= link_to @craft.source, @craft.source %>
 <p><%= @craft.description %></p>
+<p><%= @craft.description %></p>
+<p><%= @craft.material_quantity %></p>
 
 <%= form_for @project, :url => user_projects_path(@user.id) do |f| %>
 <%=     f.hidden_field :craft_id, { :value => @craft.id } %>
 <%=     f.hidden_field :user_id, { :value => @user.id } %>
 <%=     f.submit "Start this project" %>
+<% end %>
+
+<%= form_for @craft, method: "delete" do |f| %>
+    <%=     f.submit "Delete this craft" %>
 <% end %>

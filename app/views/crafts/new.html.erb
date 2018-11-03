@@ -9,12 +9,14 @@
   <%= f.text_field :method %><br>
   <%= f.label "Source" %>
   <%= f.text_field :source %><br>
-  Materials<br>
+  <h3>Materials</h3><br>
   <%= f.label "Choose a material" %>
-  <%= f.select :material_ids, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %>
+  <%= f.select :material_ids, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %><br>
   <%= f.fields_for :materials, @craft.materials.build do |materials_fields| %>
   <%=     f.label "Add a new material" %>
   <%=     materials_fields.text_field :name %><br>
   <% end %>
+  <%= f.label "Quantity" %>
+  <%= f.text_field :material_quantity %><br>
   <%= f.submit %>
 <% end %>
