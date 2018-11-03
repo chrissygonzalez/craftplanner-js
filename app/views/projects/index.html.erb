@@ -13,10 +13,16 @@
     | Finished <%= p.end_date.strftime("%A, %b %e, %Y") %>
     <% else %>
         <%= form_for p, :url => user_project_path(id: @user.id) do |f| %>
+        <%=     f.hidden_field :id, { :value => p.id } %>
         <%=     f.hidden_field :end_date, { :value => DateTime.now } %>
         <%=     f.submit "End project" %>
         <% end %>
     <% end %>
-<%= link_to "Delete Project", user_projects_path, method: "delete" %></li>
+
+    <%= form_for p, :url => user_project_path(id: @user.id), method: "delete" do |f| %>
+        <%=     f.hidden_field :id, { :value => p.id } %>
+        <%=     f.submit "Delete project" %>
+    <% end %>
+    </li>
 <% end %>
 </ul>

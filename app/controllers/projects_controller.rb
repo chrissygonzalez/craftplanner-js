@@ -19,14 +19,16 @@ class ProjectsController < ApplicationController
     
     def update
         # binding.pry
-        @project = Project.find(params[:id])
+        @project = Project.find(params[:project][:id])
         @project.update(end_date: DateTime.now)
         redirect_to user_projects_path(@project.user.id)
     end
     
-    def delete
-        binding.pry
-        # project.find()
+    def destroy
+        # binding.pry
+        @project = Project.find(params[:project][:id])
+        @project.delete
+        redirect_to user_projects_path(@project.user.id)
     end
     
     private
