@@ -5,6 +5,9 @@ class CraftsController < ApplicationController
     
     def new
         @craft = Craft.new
+        @craft.craft_materials.build
+        @craft.craft_materials.build
+        #has_many forms
     end
     
     def create
@@ -33,9 +36,17 @@ class CraftsController < ApplicationController
         end
     end
     
+    def materials_attributes=(materials_attributes)
+    end
+    
+    def craft_materials_attributes=(craft_materials_attributes)
+    end
+    
     private
     
     def craft_params
-        params.require(:craft).permit(:title, :description, :method, :source, :material_quantity, material_ids:[], materials_attributes: [:name])
+        params.require(:craft).permit(:title, :description, :method, :source, 
+        :material_ids, 
+        craft_materials_attributes: [:quantity, materials_attributes: [:name]])
     end
 end
