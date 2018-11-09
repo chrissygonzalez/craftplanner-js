@@ -4,7 +4,8 @@ class ProjectsController < ApplicationController
    end
    
    def index
-       @projects = User.find(current_user.id).projects
+       @projects = User.find(current_user.id).projects ||= nil
+    #   binding.pry
        @user = current_user
    end
 
