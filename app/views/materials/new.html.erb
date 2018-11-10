@@ -1,7 +1,20 @@
 <h1>New Material</h1>
 
+
+<% if @material.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@material.errors.count, "error") %> prohibited this material from being saved:</h2>
+ 
+    <ul>
+    <% @material.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @material do |f| %>
-  <%= f.label "Name" %>
-  <%= f.text_field :name %><br>
+    <%= f.label "name" %>
+    <%= f.text_field :name %><br>
   <%= f.submit %>
 <% end %>

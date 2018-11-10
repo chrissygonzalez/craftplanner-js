@@ -9,7 +9,13 @@ class MaterialsController < ApplicationController
     
     def create
         @material = Material.create(material_params)
-        redirect_to materials_path
+        if !@material.valid?
+            @message = @material.errors[:name]
+            flash[:notice] = @message
+            render :new
+        else
+            redirect_to materials_path
+        end
     end
     
     private

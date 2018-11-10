@@ -7,3 +7,14 @@ h1 {
     font-weight: normal;
     color: #db1d00;
 }
+
+.field_with_errors {
+    border: 1px solid red;
+}
+
+.notice {
+    background-color: #eaeaea;
+    margin: 10px;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
