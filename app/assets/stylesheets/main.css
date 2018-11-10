@@ -12,6 +12,10 @@ h1 {
     border: 1px solid red;
 }
 
+.field_with_errors textarea {
+    border: 1px solid red;
+}
+
 .notice {
     background-color: #eaeaea;
     margin: 10px;

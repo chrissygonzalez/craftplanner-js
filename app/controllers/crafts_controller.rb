@@ -13,7 +13,11 @@ class CraftsController < ApplicationController
     def create
         # binding.pry
         @craft = Craft.create(craft_params)
-        redirect_to craft_path(@craft.id)
+        if @craft.valid?
+            redirect_to craft_path(@craft.id)
+        else
+            render :new
+        end
     end
     
     def show
