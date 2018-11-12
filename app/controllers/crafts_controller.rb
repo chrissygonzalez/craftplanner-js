@@ -5,13 +5,13 @@ class CraftsController < ApplicationController
     
     def new
         @craft = Craft.new
+        # binding.pry
         @craft.craft_materials.build
-        # @craft.craft_materials.build
+        @craft.craft_materials.build
         #has_many forms
     end
     
     def create
-        # binding.pry
         @craft = Craft.create(craft_params)
         if @craft.valid?
             redirect_to craft_path(@craft.id)
@@ -24,7 +24,6 @@ class CraftsController < ApplicationController
         @project = Project.new(user_id: current_user.id)
         @user = current_user
         @craft = Craft.find(params[:id])
-        # @materials = 
     end
     
     def destroy
@@ -41,10 +40,6 @@ class CraftsController < ApplicationController
     # end
     
     def materials_attributes=(materials_attributes)
-        # materials_attributes.values.each do |material_attribute|
-        #     material = Material.find(material_attribute)
-        #     self.materials << material
-        # end
     end
     
     def craft_materials_attributes=(craft_materials_attributes)
@@ -53,7 +48,7 @@ class CraftsController < ApplicationController
     private
     
     def craft_params
-        params.require(:craft).permit(:title, :description, :method, :source, 
+        params.require(:craft).permit(:title, :description, :method, :source, :id, 
         # :material_ids, 
         craft_materials_attributes: [:quantity, :material_id])
     end

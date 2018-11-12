@@ -23,19 +23,14 @@
   <%= f.text_field :source %><br>
 
   <h3>Materials</h3><br>
-  <%= f.label "Choose a material" %>
+  
   <%= f.fields_for :craft_materials do |c| %>
-      <%=   c.select :material_id, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %><br>
+    <%=  c.label "Choose a material" %>
+    <%=  c.select :material_id, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %><br>
     <%=  c.label "Quantity" %>
-    <%=  c.text_field :quantity %>
+    <%=  c.text_field :quantity %><br>
   <% end %>
-<br><br>
-  <%= f.label "Choose a material" %>
-  <%= f.fields_for :craft_materials do |c| %>
-      <%=   c.select :material_id, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %><br>
-    <%=  c.label "Quantity" %>
-    <%=  c.text_field :quantity %>
-  <% end %>
-
+  
 <br>  <%= f.submit %>  
 <% end %>
+<br>
