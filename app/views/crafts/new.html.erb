@@ -1,9 +1,8 @@
 <h1>New Craft</h1>
 
-
 <% if @craft.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@craft.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <h2><%= pluralize(@craft.errors.count, "error") %> prohibited this craft from being saved:</h2>
  
     <ul>
     <% @craft.errors.full_messages.each do |msg| %>
@@ -12,8 +11,6 @@
     </ul>
   </div>
 <% end %>
-
-
 
 <%= form_for @craft do |f| %>
   <%= f.label "Title" %>
@@ -27,12 +24,10 @@
 
   <h3>Materials</h3><br>
   <%= f.label "Choose a material" %>
-  <%= f.select :material_ids, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %><br>
   <%= f.fields_for :craft_materials do |c| %>
-    <%=  c.fields_for :materials do |materials_fields| %>
-      <%=     materials_fields.label "Add a new material" %>
-      <%=     materials_fields.text_field :name %><br>
-    <% end %>
+
+      <%=   c.select :material_id, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %><br>
+
     <%=  c.label "Quantity" %>
     <%=  c.text_field :quantity %>
   <% end %>
