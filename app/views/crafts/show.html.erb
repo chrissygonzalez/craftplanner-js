@@ -7,12 +7,16 @@
 <p style="background-color: #eaeaea"><%= @craft.method %></p>
 <%= link_to @craft.source, @craft.source %>
 <p><%= @craft.description %></p>
-<p><% @craft.craft_materials.each do |m| %>
-    <%= Material.find(m.material_id).name %>
+Materials
+<ul>
+<% @craft.craft_materials.each do |m| %>
+<li>
+    <%= Material.find(m.material_id).name %> - 
     <%= "Quantity: #{m.quantity}" %>
+    </li>
 <% end %>
-</p>
 
+</ul>
 <%= form_for @project, :url => user_projects_path(@user.id) do |f| %>
 <%=     f.hidden_field :craft_id, { :value => @craft.id } %>
 <%=     f.hidden_field :user_id, { :value => @user.id } %>
