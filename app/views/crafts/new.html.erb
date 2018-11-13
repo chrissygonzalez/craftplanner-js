@@ -5,8 +5,8 @@
     <h2><%= pluralize(@craft.errors.count, "error") %> prohibited this craft from being saved:</h2>
  
     <ul>
-    <% @craft.errors.messages.each do |msg| %>
-      <li><%= msg[1][0] %></li>
+    <% @craft.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
     <% end %>
     </ul>
   </div>
@@ -24,13 +24,18 @@
 
   <h3>Materials</h3><br>
   
-  <%= f.fields_for :craft_materials do |c| %>
-    <%=  c.label "Choose a material" %>
-    <%=  c.select :material_id, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %><br>
-    <%=  c.label "Quantity" %>
-    <%=  c.text_field :quantity %><br>
+  <%= f.fields_for :craft_materials do |cm| %>
+      <%= cm.fields_for :material do |mat| %>
+        <p>Or add a new material
+        <%= mat.label "Name:" %>
+        <%= mat.text_field :name %></p>
+      <% end %>
+    
+    <%=  cm.label "Quantity" %>
+    <%=  cm.text_field :quantity %><br>
   <% end %>
   
-<br>  <%= f.submit %>  
+  <br>  
+  <%= f.submit %>  
 <% end %>
-<br>
+

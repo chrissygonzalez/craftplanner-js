@@ -5,10 +5,10 @@ class CraftsController < ApplicationController
     
     def new
         @craft = Craft.new
-        # binding.pry
         @craft.craft_materials.build
-        @craft.craft_materials.build
-        #has_many forms
+        @craft.craft_materials.each do |craft_material|
+            craft_material.build_material
+        end
     end
     
     def create
@@ -17,6 +17,7 @@ class CraftsController < ApplicationController
             redirect_to craft_path(@craft.id)
         else
             @craft.craft_materials.build
+            # @craft.materials.build
             render :new
         end
     end
@@ -33,24 +34,20 @@ class CraftsController < ApplicationController
         redirect_to crafts_path
     end
     
-    # def categories_attributes=(category_attributes)
-    #     category_attributes.values.each do |category_attribute|
-    #         category = Category.find_or_create_by(category_attribute)
-    #         self.categories << category
-    #     end
-    # end
-    
-    def materials_attributes=(materials_attributes)
+    def craft_materials_attributes=(craft_materials_attributes)
+        binding.pry
     end
     
-    def craft_materials_attributes=(craft_materials_attributes)
+    def materials_attributes=(materials_attributes)
+        binding.pry
     end
     
     private
     
     def craft_params
         params.require(:craft).permit(:title, :description, :method, :source, :id, 
-        # :material_ids, 
-        craft_materials_attributes: [:quantity, :material_id])
+        craft_materials_attributes: [:quantity, :id,
+        material_attributes: [:name]
+        ])
     end
 end

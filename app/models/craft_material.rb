@@ -1,6 +1,6 @@
 class CraftMaterial < ActiveRecord::Base
-    belongs_to :craft
-    belongs_to :material
+    belongs_to :craft, inverse_of: :craft_materials
+    belongs_to :material, inverse_of: :craft_materials
     
-    # validates :quantity, presence: true
+    accepts_nested_attributes_for :material
 end

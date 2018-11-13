@@ -10,8 +10,6 @@ class MaterialsController < ApplicationController
     def create
         @material = Material.create(material_params)
         if !@material.valid?
-            # @message = @material.errors.full_messages
-            # flash[:notice] = @message
             render :new
         else
             redirect_to materials_path
