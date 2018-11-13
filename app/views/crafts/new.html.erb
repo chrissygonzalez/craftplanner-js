@@ -5,8 +5,8 @@
     <h2><%= pluralize(@craft.errors.count, "error") %> prohibited this craft from being saved:</h2>
  
     <ul>
-    <% @craft.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% @craft.errors.messages.each do |msg| %>
+      <li><%= msg[1][0] %></li>
     <% end %>
     </ul>
   </div>

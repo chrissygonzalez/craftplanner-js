@@ -16,6 +16,7 @@ class CraftsController < ApplicationController
         if @craft.valid?
             redirect_to craft_path(@craft.id)
         else
+            @craft.craft_materials.build
             render :new
         end
     end
