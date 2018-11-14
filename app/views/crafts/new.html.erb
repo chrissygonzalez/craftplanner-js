@@ -23,8 +23,10 @@
   <%= f.text_field :source %><br>
 
   <h3>Materials</h3><br>
-  
   <%= f.fields_for :craft_materials do |cm| %>
+    <%= cm.label "Name:" %>
+    <%= cm.select :material_id, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %><br>
+    
       <%= cm.fields_for :material do |mat| %>
         <p>Or add a new material
         <%= mat.label "Name:" %>

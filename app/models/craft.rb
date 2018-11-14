@@ -9,7 +9,7 @@ class Craft < ActiveRecord::Base
     validates :description, presence: { message: "Description can't be blank."}
     validates :method, presence: { message: "Method can't be blank."}
     validates :source, presence: { message: "Source can't be blank."}
-    validates_presence_of :craft_materials, message: "Quantity can't be blank."
+    validates_presence_of :craft_materials
     # validates_presence_of :materials, message: "Material can't be blank."
     
 end

@@ -16,8 +16,11 @@ class CraftsController < ApplicationController
         if @craft.valid?
             redirect_to craft_path(@craft.id)
         else
+            @craft.craft_materials.clear
             @craft.craft_materials.build
-            # @craft.materials.build
+            @craft.craft_materials.each do |craft_material|
+                craft_material.build_material
+            end
             render :new
         end
     end
@@ -46,7 +49,7 @@ class CraftsController < ApplicationController
     
     def craft_params
         params.require(:craft).permit(:title, :description, :method, :source, :id, 
-        craft_materials_attributes: [:quantity, :id,
+        craft_materials_attributes: [:quantity, :material_id,
         material_attributes: [:name]
         ])
     end
