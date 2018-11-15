@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     post   '/signin',   to: 'sessions#create'
     match  '/logout',   to: 'sessions#destroy', via: :delete
     
+    get '/auth/:provider/callback', to: 'sessions#create'
+    
     resources :users, only: [:new, :create, :show] do
         resources :projects, only: [:index, :new, :create, :show, :update, :destroy]
     end
