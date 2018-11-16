@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_165404) do
+ActiveRecord::Schema.define(version: 2018_11_16_214218) do
 
   create_table "craft_materials", force: :cascade do |t|
     t.integer "craft_id"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2018_11_03_165404) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.integer "uid"
+    t.string "image"
   end
 
 end
