@@ -1,0 +1,12 @@
+<header>
+    <%= link_to "Craftplanner", root_path %>
+    <% if signed_in? %>
+    <%=     link_to "Home", user_path(current_user) %>
+    <%=     link_to "Crafts", crafts_path %>
+    <%=     link_to "Materials", materials_path %>
+    <%=     link_to "Log Out", logout_path, method: "delete" %>
+    <% else %>
+    <%=     link_to "Sign Up", new_user_path %>
+    <%=     link_to "Sign In", signin_path %>
+    <% end %>
+</header>
