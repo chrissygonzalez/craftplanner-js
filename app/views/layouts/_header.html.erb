@@ -6,7 +6,9 @@
     <%=     link_to "Materials", materials_path %>
     <%=     link_to "Log Out", logout_path, method: "delete" %>
     <% else %>
+    <div class="float-right">
     <%=     link_to "Sign Up", new_user_path %>
     <%=     link_to "Sign In", signin_path %>
+    </div>
     <% end %>
 </header>
