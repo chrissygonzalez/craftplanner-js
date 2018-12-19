@@ -8,9 +8,14 @@ class UsersController < ApplicationController
    
    def create
         @user = User.create(user_params)
-         signin(@user)
-        # binding.pry
-        redirect_to user_path(@user.id)
+        if @user.valid?
+            signin(@user)
+            redirect_to user_path(@user.id)
+        else
+            # binding.pry
+            @signed_out = !signed_in?
+            render :new
+        end
    end
    
    def show
@@ -22,6 +27,6 @@ class UsersController < ApplicationController
    private
    
    def user_params
-       params.require(:user).permit(:name, :password)
+       params.require(:user).permit(:name, :password, :password_confirmation)
    end
 end
