@@ -1,10 +1,10 @@
 <div class="container">
     <div class="form-card">
 <h1 class="center">Sign In to CraftPlanner</h1>
-<h3>Sign in with email</h3></h3>
+<h3>Sign in with your user name</h3></h3>
 <%= form_for(:user, url: signin_path) do |f| %>
 <%=     label_tag "Name" %>
-<%=     select_tag "user_name", options_from_collection_for_select(@users, "name", "name") %><br>
+<%=     select_tag "user_name", options_from_collection_for_select(@users, "name", "name"), {prompt: 'Select name'} %><br>
 <%=     label_tag "Password" %>
 <%=     password_field_tag 'password' %><br>
 <%=     f.label :password_confirmation %>
@@ -12,6 +12,6 @@
 <%=     f.submit 'Sign In' %>
 <% end %>
 <h3>Sign in with your Twitter account</h3>
-<%= link_to "Sign in with Twitter", "/auth/twitter" %>
+<%= link_to "Sign in with Twitter", "/auth/twitter", class: "button" %>
 </div>
 </div>

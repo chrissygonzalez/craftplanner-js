@@ -1,14 +1,14 @@
 <header>
-    <%= link_to "Craftplanner", root_path %>
     <% if signed_in? %>
-    <%=     link_to "Home", user_path(current_user) %>
-    <%=     link_to "Crafts", crafts_path %>
-    <%=     link_to "Materials", materials_path %>
-    <%=     link_to "Log Out", logout_path, method: "delete" %>
+    <%=     link_to "Home", user_path(current_user), class: 'button' %>
+    <%=     link_to "Crafts", crafts_path, class: 'button' %>
+    <%=     link_to "Materials", materials_path, class: 'button' %>
+    <%=     link_to "Log Out", logout_path, method: "delete", class: 'button' %>
     <% else %>
+    <%=     link_to "Craftplanner", root_path, class: 'button' %>
     <div class="float-right">
-    <%=     link_to "Sign Up", new_user_path %>
-    <%=     link_to "Sign In", signin_path %>
+    <%=     link_to "Sign Up", new_user_path, class: 'button' %>
+    <%=     link_to "Sign In", signin_path, class: 'button' %>
     </div>
     <% end %>
 </header>

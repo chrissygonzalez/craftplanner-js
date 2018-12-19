@@ -10,7 +10,7 @@ header {
     padding: 20px;
 }
 
-a {
+.button {
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #db1d00;

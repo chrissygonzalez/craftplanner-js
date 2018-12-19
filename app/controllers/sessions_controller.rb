@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   def new
     @user = User.new
     @users = User.all
+    @signed_out = !signed_in?
   end
   
   def create

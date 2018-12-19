@@ -2,6 +2,7 @@ class UsersController < ApplicationController
    skip_before_action :require_signin, only: [:new, :create]
     
    def new
+       @signed_out = !signed_in?
        @user = User.new
    end
    
