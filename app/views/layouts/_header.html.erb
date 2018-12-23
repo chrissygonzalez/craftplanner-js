@@ -4,6 +4,7 @@
     <%=     link_to "Crafts", crafts_path, class: 'button' %>
     <%=     link_to "Materials", materials_path, class: 'button' %>
     <div class="float-right">
+    <p class="display-inline">Hello, <%= current_user.name %>!</p>
     <%=     link_to "Log Out", logout_path, method: "delete", class: 'button' %>
     </div>
     <% else %>

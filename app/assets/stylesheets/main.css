@@ -66,6 +66,10 @@ input[type=submit]:hover {
     float: right;
 }
 
+.display-inline {
+    display: inline;
+}
+
 /** FROM RAILS **/
 .edit_project {
     display: inline;
@@ -77,6 +81,10 @@ h1 {
     font-weight: normal;
     color: #db1d00;
     line-height: 45px;
+}
+
+h3 {
+    margin: 0;    
 }
 
 /* ERRORS */
@@ -98,6 +106,17 @@ h1 {
     padding: 2px;
     border: 1px solid #ccc;
 }
+
+/** PROJECTS **/
+.projects-list {
+    list-style: none;
+}
+
+.projects-detail {
+    border: 1px solid gray;
+    background-color: #fff;
+}
+
 
 /** FORMS **/
 .container {

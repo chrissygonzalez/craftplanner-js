@@ -13,23 +13,21 @@ class ProjectsController < ApplicationController
         @project = Project.create(project_params)
         @project.start_date = DateTime.now
         @project.save
-        # @message = @ride.take_ride
-        # flash[:notice] = @message
-        redirect_to user_projects_path(@project.user.id)
+        redirect_to user_path(@project.user.id)
     end
     
     def update
         # binding.pry
         @project = Project.find(params[:project][:id])
         @project.update(end_date: DateTime.now)
-        redirect_to user_projects_path(@project.user.id)
+        redirect_to user_path(@project.user.id)
     end
     
     def destroy
         # binding.pry
         @project = Project.find(params[:project][:id])
         @project.delete
-        redirect_to user_projects_path(@project.user.id)
+        redirect_to user_path(@project.user.id)
     end
     
     private
