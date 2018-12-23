@@ -1,3 +1,25 @@
 <h1>Show page for <%= @user.name %>!</h1>
 
+<ul>
+<% @projects.each do |p| %>
+    <li><%= link_to p.craft.title, craft_path(p.craft.id) %> | 
+    Started <%= p.start_date.strftime("%A, %b %e, %Y") %>
+    <% if p.done? %>
+    | Finished <%= p.end_date.strftime("%A, %b %e, %Y") %>
+    <% else %>
+        <%= form_for p, :url => user_project_path(@user.id) do |f| %>
+        <%=     f.hidden_field :id, { :value => p.id } %>
+        <%=     f.hidden_field :end_date, { :value => DateTime.now } %>
+        <%=     f.submit "End project" %>
+        <% end %>
+    <% end %>
+
+    <%= form_for p, :url => user_project_path(@user.id), method: "delete" do |f| %>
+        <%=     f.hidden_field :id, { :value => p.id } %>
+        <%=     f.submit "Delete project" %>
+    <% end %>
+    </li>
+<% end %>
+</ul>
+
 <%= link_to "My projects", user_projects_path(current_user.id) %>

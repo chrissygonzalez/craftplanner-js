@@ -21,6 +21,10 @@ header {
     font-weight: bold;
 }
 
+.button:hover {
+    background-color: #fff1ef;
+}
+
 a:hover {
     
 }
@@ -36,7 +40,12 @@ input[type=submit] {
     padding: 8px;
     margin: 10px 5px;
     color: #db1d00;
-    font-weight: bold;    
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #fff1ef;
 }
 
 .craft-image {
@@ -52,8 +61,14 @@ input[type=submit] {
     margin: 50px auto;
 }
 
+/** UTILITY **/
 .float-right {
     float: right;
+}
+
+/** FROM RAILS **/
+.edit_project {
+    display: inline;
 }
 
 /** TYPOGRAPHY **/
