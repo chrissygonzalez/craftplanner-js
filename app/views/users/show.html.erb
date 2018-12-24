@@ -1,35 +1,55 @@
 <h1>Your CraftPlanner</h1>
 
 <h3>Incomplete Projects</h3>
-<ul class="projects-list">
-    <% @projects.incomplete.each do |p| %>
-    <li class="projects-detail"><h3><%= link_to p.craft.title, craft_path(p.craft.id) %></h3> 
-    Started <%= p.start_date.strftime("%A, %b %e, %Y") %>
-  
-        <%= form_for p, :url => user_project_path(@user.id) do |f| %>
-        <%=     f.hidden_field :id, { :value => p.id } %>
-        <%=     f.hidden_field :end_date, { :value => DateTime.now } %>
-        <%=     f.submit "End project" %>
-        <% end %>
 
-    <%= form_for p, :url => user_project_path(@user.id), method: "delete" do |f| %>
-        <%=     f.hidden_field :id, { :value => p.id } %>
-        <%=     f.submit "Delete project" %>
+<table>
+    <tr>
+        <th>Craft title</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Actions</th>
+    </tr>
+    <% @projects.incomplete.each do |p| %>
+        <tr>
+            <td><%= link_to p.craft.title, craft_path(p.craft.id) %></td>
+            <td>Started <%= p.start_date.strftime("%A, %b %e, %Y") %></td>
+            <td></td>
+            <td>
+                <%= form_for p, :url => user_project_path(@user.id) do |f| %>
+                <%=     f.hidden_field :id, { :value => p.id } %>
+                <%=     f.hidden_field :end_date, { :value => DateTime.now } %>
+                <%=     f.submit "End project" %>
+                <% end %>
+
+                <%= form_for p, :url => user_project_path(@user.id), method: "delete" do |f| %>
+                <%=     f.hidden_field :id, { :value => p.id } %>
+                <%=     f.submit "Delete project" %>
+                <% end %>
+            </td>
+        </tr>
     <% end %>
-    </li>
-<% end %>
-</ul>
+</table>
 
 <h3>Completed Projects</h3>
-<ul class="projects-list">
-<% @projects.complete.each do |p| %>
-    <li class="projects-detail"><h3><%= link_to p.craft.title, craft_path(p.craft.id) %></h3> 
-    Started <%= p.start_date.strftime("%A, %b %e, %Y") %> | Finished <%= p.end_date.strftime("%A, %b %e, %Y") %>
 
-    <%= form_for p, :url => user_project_path(@user.id), method: "delete" do |f| %>
-        <%=     f.hidden_field :id, { :value => p.id } %>
-        <%=     f.submit "Delete project" %>
+<table>
+    <tr>
+        <th>Craft title</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th>Actions</th>
+    </tr>
+    <% @projects.complete.each do |p| %>
+        <tr>
+            <td><%= link_to p.craft.title, craft_path(p.craft.id) %></td>
+            <td>Started <%= p.start_date.strftime("%A, %b %e, %Y") %></td>
+            <td>Finished <%= p.end_date.strftime("%A, %b %e, %Y") %></td>
+            <td>
+                <%= form_for p, :url => user_project_path(@user.id), method: "delete" do |f| %>
+                <%=     f.hidden_field :id, { :value => p.id } %>
+                <%=     f.submit "Delete project" %>
+                <% end %>
+            </td>
+        </tr>
     <% end %>
-    </li>
-<% end %>
-</ul>
+</table>

@@ -25,8 +25,12 @@ header {
     background-color: #fff1ef;
 }
 
+a {
+    text-decoration: none;    
+}
+
 a:hover {
-    
+    text-decoration: underline;
 }
 
 input[type=text] {
