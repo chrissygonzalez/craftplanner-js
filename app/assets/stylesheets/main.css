@@ -112,15 +112,22 @@ h3 {
 }
 
 /** PROJECTS **/
-.projects-list {
-    list-style: none;
-}
-
-.projects-detail {
-    border: 1px solid gray;
+table {
     background-color: #fff;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid gray;
 }
 
+th {
+  text-align: left;
+  padding: 5px;
+  background-color: #fff1ef;
+}
+
+td {
+    padding: 5px 15px;
+}
 
 /** FORMS **/
 .container {

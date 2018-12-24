@@ -11,9 +11,9 @@
     </tr>
     <% @projects.incomplete.each do |p| %>
         <tr>
-            <td><%= link_to p.craft.title, craft_path(p.craft.id) %></td>
+            <td><strong><%= link_to p.craft.title, craft_path(p.craft.id) %></strong></td>
             <td>Started <%= p.start_date.strftime("%A, %b %e, %Y") %></td>
-            <td></td>
+            <td>none</td>
             <td>
                 <%= form_for p, :url => user_project_path(@user.id) do |f| %>
                 <%=     f.hidden_field :id, { :value => p.id } %>
