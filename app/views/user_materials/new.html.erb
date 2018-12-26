@@ -3,14 +3,28 @@
 <% if @user_material.errors.any? %>
   <div id="error_explanation">
     <p>Please fix the following <%= pluralize(@user_material.errors.count, "error") %>:</p>
+        <ul>
+    <% @user_material.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
   </div>
 <% end %>
 
 <%= form_for @user_material, :url => user_user_materials_path do |um| %>
       <%= um.hidden_field :user_id, { :value => current_user.id } %>
+      <%= um.label "Name:" %>
+      <%= um.select :material_id, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %><br>
+    
       <%= um.fields_for :material do |mat| %>
-        <%= mat.label "Name:" %>
-        <%= mat.text_field :name %></p>
+        <p>Or add a new material</p>
+        <%= mat.label "Name:" %><br>
+        <%= mat.text_field :name %>
       <% end %>
+      
+      <div>
+      <%= um.label "Quantity:" %><br>
+      <%= um.text_field :quantity %>
+      </div>
   <%= um.submit "Add to Stash" %>
 <% end %>
