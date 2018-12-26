@@ -1,7 +1,15 @@
 <h1>My Stash</h1>
 <%= link_to "Add to my stash", new_user_user_material_path, class: "button" %>
 
+<table class="shadow">
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+    </tr>
 <% @user_materials.each do |um| %>
-    <%= um.material.name %>
-    <%= um.quantity %>
+    <tr>
+        <td><strong><%= um.material.name %></strong></td>
+        <td><%= um.quantity %></td>
+    </tr>
 <% end %>
+</table>
