@@ -1,7 +1,7 @@
 <header>
     <% if signed_in? %>
-    <%=     link_to "Planner", user_path(current_user), class: 'button' %>
-    <%=     link_to "Stash", user_user_materials_path(current_user), class: 'button' %>
+    <%=     link_to "My Planner", user_path(current_user), class: 'button' %>
+    <%=     link_to "My Stash", user_user_materials_path(current_user), class: 'button' %>
     <%=     link_to "Craft Projects", crafts_path, class: 'button' %>
     <%=     link_to "Materials", materials_path, class: 'button' %>
     <div class="float-right">

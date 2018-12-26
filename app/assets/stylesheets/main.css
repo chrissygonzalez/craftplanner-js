@@ -3,6 +3,7 @@ body {
     /*background-color: #ffebe8;*/
     background-color: #ffebe8;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23fbcbc4' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+    color: #444;
 }
 
 header {
@@ -30,7 +31,8 @@ ul {
 }
 
 a {
-    text-decoration: none;    
+    text-decoration: none;
+    color: #444;
 }
 
 a:hover {
@@ -78,6 +80,12 @@ input[type=submit]:hover {
     display: inline;
 }
 
+.shadow {
+    -webkit-box-shadow: 0px 3px 14px -6px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 3px 14px -6px rgba(0,0,0,0.3);
+    box-shadow: 0px 3px 14px -6px rgba(0,0,0,0.3);
+}
+
 /** FROM RAILS **/
 .edit_project {
     display: inline;
@@ -121,7 +129,7 @@ table {
     background-color: #fff;
     table-layout: fixed;
     border-collapse: collapse;
-    border: 1px solid gray;
+    /*border: 1px solid gray;*/
     min-width: 800px;
     margin-bottom: 50px;
 }
@@ -137,18 +145,21 @@ td {
 }
 
 /** CRAFTS, MATERIALS **/
+
+.card-title {
+    margin-bottom: 5px;    
+}
+
 .item-list {
     /*display: flex;*/
+    text-align: center;
 }
 
 .item-list-detail {
-    padding: 25px;
+    padding: 25px 25px 20px 25px;
     margin: 10px;
     background-color: #fff;
     border-radius: 3px;
-    -webkit-box-shadow: 0px 3px 14px -6px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 3px 14px -6px rgba(0,0,0,0.5);
-    box-shadow: 0px 3px 14px -6px rgba(0,0,0,0.5);
 }
 
 .badge {
@@ -156,11 +167,11 @@ td {
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 1px;
-    border: 1px solid #bbb;
-    border-radius: 2px;
-    padding: 1px 4px;
-    margin-left: 8px;
-    color: #888;
+    /*border: 1px solid #aaa;*/
+    /*border-radius: 2px;*/
+    padding: 3px 4px;
+    margin: 10px 5px 5px 5px;
+    color: #666;
 }
 
 /** FORMS **/

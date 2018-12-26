@@ -1,18 +1,16 @@
-<h1>Your CraftPlanner</h1>
+<h3>In Progress</h3>
 
-<h3>Incomplete Projects</h3>
-
-<table>
+<table class="shadow">
     <tr>
         <th>Title</th>
-        <th>Start date</th>
-        <th>End date</th>
+        <th>Started</th>
+        <th>Finished</th>
         <th>Actions</th>
     </tr>
     <% @projects.incomplete.each do |p| %>
         <tr>
             <td><strong><%= link_to p.craft.title, craft_path(p.craft.id) %></strong></td>
-            <td>Started <%= p.start_date.strftime("%A, %b %e, %Y") %></td>
+            <td><%= p.start_date.strftime("%A, %b %e, %Y") %></td>
             <td>none</td>
             <td>
                 <%= form_for p, :url => user_project_path(@user.id) do |f| %>
@@ -29,21 +27,21 @@
         </tr>
     <% end %>
 </table>
+    <% if @projects.complete.count > 0 %>
+<h3>Completed</h3>
 
-<h3>Completed Projects</h3>
-
-<table>
+<table class="shadow">
     <tr>
         <th>Title</th>
-        <th>Start date</th>
-        <th>End date</th>
+        <th>Started</th>
+        <th>Finished</th>
         <th>Actions</th>
     </tr>
     <% @projects.complete.each do |p| %>
         <tr>
-            <td><%= link_to p.craft.title, craft_path(p.craft.id) %></td>
-            <td>Started <%= p.start_date.strftime("%A, %b %e, %Y") %></td>
-            <td>Finished <%= p.end_date.strftime("%A, %b %e, %Y") %></td>
+            <td><strong><%= link_to p.craft.title, craft_path(p.craft.id) %></strong></td>
+            <td><%= p.start_date.strftime("%A, %b %e, %Y") %></td>
+            <td><%= p.end_date.strftime("%A, %b %e, %Y") %></td>
             <td>
                 <%= form_for p, :url => user_project_path(@user.id), method: "delete" do |f| %>
                 <%=     f.hidden_field :id, { :value => p.id } %>
@@ -52,4 +50,6 @@
             </td>
         </tr>
     <% end %>
+
 </table>
+    <% end %>

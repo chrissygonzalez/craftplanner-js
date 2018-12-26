@@ -4,7 +4,7 @@
 <ul class="item-list">
     <div class="container">
         <% @crafts.each do |c| %>
-            <li class="item-list-detail"><strong><%= link_to c.title, craft_path(c.id) %></strong> <div class="badge"><%= c.method %></div> </li>
+            <li class="item-list-detail shadow"><h3 class="card-title"><%= link_to c.title, craft_path(c.id) %></h3><div class="badge"><%= c.method %></div> </li>
         <% end %>
     </div>
 </ul>
