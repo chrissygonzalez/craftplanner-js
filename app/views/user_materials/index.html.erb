@@ -1,15 +1,21 @@
-<h1>My Stash</h1>
-<%= link_to "Add to my stash", new_user_user_material_path, class: "button" %>
+<div class="container">
+    <div class="table-card mt-50">
+        <div class="display-flex">
+            <h1 class="">My Stash</h1>
+            <%= link_to "Add to my stash", new_user_user_material_path, class: "button self-center ml-20" %>
+        </div>
 
-<table class="shadow">
-    <tr>
-        <th>Name</th>
-        <th>Quantity</th>
-    </tr>
-<% @user_materials.each do |um| %>
-    <tr>
-        <td><strong><%= um.material.name %></strong></td>
-        <td><%= um.quantity %></td>
-    </tr>
-<% end %>
-</table>
+        <table class="shadow">
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+            </tr>
+            <% @user_materials.each do |um| %>
+            <tr>
+                <td class="stash-row row"><%= um.material.name %></td>
+                <td class="stash-row row"><%= um.quantity %></td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
