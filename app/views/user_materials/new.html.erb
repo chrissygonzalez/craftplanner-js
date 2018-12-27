@@ -1,15 +1,6 @@
 <h1>Add a material to your stash</h1>
 
-<% if @user_material.errors.any? %>
-  <div id="error_explanation">
-    <p>Please fix the following <%= pluralize(@user_material.errors.count, "error") %>:</p>
-        <ul>
-    <% @user_material.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "layouts/errors", locals: {object: @user_material} %>
 
 <%= form_for @user_material, :url => user_user_materials_path do |um| %>
       <%= um.hidden_field :user_id, { :value => current_user.id } %>

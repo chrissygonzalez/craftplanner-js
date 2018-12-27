@@ -1,15 +1,6 @@
 <h1>New Material</h1>
 
-<% if @material.errors.any? %>
-  <div id="error_explanation">
-    <p>Please fix the following <%= pluralize(@material.errors.count, "error") %>:</p>
-        <ul>
-    <% @material.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "layouts/errors", locals: {object: @material} %>
 
 <%= form_for @material do |f| %>
     <%= f.label "name" %>

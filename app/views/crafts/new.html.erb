@@ -1,16 +1,6 @@
 <h1>New Craft</h1>
 
-<% if @craft.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@craft.errors.count, "error") %> prohibited this craft from being saved:</h2>
- 
-    <ul>
-    <% @craft.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "layouts/errors", locals: {object: @craft} %>
 
 <%= form_for @craft do |f| %>
   <%= f.label "Title" %>
