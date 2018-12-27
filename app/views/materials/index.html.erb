@@ -1,14 +1,21 @@
-<ul class="item-list">
-    <div class="container">
-        <div class="craft-card">
+<div class="container">
+        <div class="table-card mt-50">
             <div class="display-flex">
-                <h1 class="">Materials</h1>
+                <h1>Materials</h1>
                 <%= link_to "Add a new material", new_material_path, class: "button self-center ml-20" %>
             </div>
-        </div>
 
+        <table class="shadow">
+            <tr>
+                <th>Name</th>
+            </tr>
         <% @materials.each do |m| %>
-            <li class="item-list-detail shadow"><h3 class="card-title"><%= m.name %></h3></li>
+            <tr>
+                <td class="stash-row row">
+                    <%= m.name %>
+                </td>
+            </tr>
         <% end %>
-    </ul>
+    </table>
+    </div>
 </div>
