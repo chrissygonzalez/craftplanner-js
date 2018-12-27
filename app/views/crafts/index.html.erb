@@ -1,10 +1,14 @@
-<h1>Craft Projects</h1>
-<%= link_to "Add a new craft project", new_craft_path, class: "button" %>
-
 <ul class="item-list">
     <div class="container">
+        <div class="craft-card">
+            <div class="display-flex">
+                <h1 class="">Craft Projects</h1>
+                <%= link_to "Add a new craft project", new_craft_path, class: "button self-center ml-20" %>
+            </div>
+        </div>
+        
         <% @crafts.each do |c| %>
-            <li class="item-list-detail shadow"><h3 class="card-title"><%= link_to c.title, craft_path(c.id) %></h3><div class="badge"><%= c.method %></div> </li>
+            <li class="item-list-detail shadow"><h3 class="card-title"><%= link_to c.title, craft_path(c.id), class: "underline" %></h3><div class="badge"><%= c.method %></div> </li>
         <% end %>
     </div>
 </ul>

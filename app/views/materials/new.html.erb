@@ -1,18 +1,19 @@
 <h1>New Material</h1>
 
-
 <% if @material.errors.any? %>
   <div id="error_explanation">
     <p>Please fix the following <%= pluralize(@material.errors.count, "error") %>:</p>
+        <ul>
+    <% @material.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
   </div>
 <% end %>
 
 <%= form_for @material do |f| %>
     <%= f.label "name" %>
     <%= f.text_field :name %>
-    <% if @material.errors[:name].size > 0 %>
-      <%= "Name #{@material.errors[:name][0]}" %>
-    <% end %>
     <br>
   <%= f.submit %>
 <% end %>

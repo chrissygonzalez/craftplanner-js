@@ -96,6 +96,10 @@ input[type=submit]:hover {
     margin-left: 20px;
 }
 
+.mr-20 {
+    margin-right: 20px;
+}
+
 .underline {
     text-decoration: underline;
 }
@@ -163,7 +167,7 @@ table {
 th {
   text-align: left;
   padding: 15px 15px;
-  background-color: #fff1ef;
+  background-color: #fff6f4;
 }
 
 td {
@@ -171,7 +175,6 @@ td {
 }
 
 .table-card {
-    border-radius: 4px;
     grid-column: 2 / 5;
     grid-row: 1 / 6;
     padding: 0 25px 50px 25px;
@@ -185,8 +188,12 @@ td {
     border-bottom: 1px solid #eaeaea;    
 }
 
-/** CRAFTS, MATERIALS **/
+.craft-card {
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+}
 
+/** CRAFTS, MATERIALS **/
 .card-title {
     margin-bottom: 5px;    
 }
@@ -194,6 +201,8 @@ td {
 .item-list {
     /*display: flex;*/
     text-align: center;
+    padding: 0;
+    margin: 50px;
 }
 
 .item-list-detail {
@@ -208,10 +217,7 @@ td {
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 1px;
-    /*border: 1px solid #aaa;*/
-    /*border-radius: 2px;*/
     padding: 3px 4px;
-    margin: 10px 5px 5px 5px;
     color: #666;
 }
 
@@ -220,7 +226,6 @@ td {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  /*border: 1px solid red;*/
 }
 
 .form-card {

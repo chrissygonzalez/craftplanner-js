@@ -1,8 +1,12 @@
-<h1>Materials</h1>
-<%= link_to "Add a new material", new_material_path, class: "button" %>
-
 <ul class="item-list">
     <div class="container">
+        <div class="craft-card">
+            <div class="display-flex">
+                <h1 class="">Materials</h1>
+                <%= link_to "Add a new material", new_material_path, class: "button self-center ml-20" %>
+            </div>
+        </div>
+
         <% @materials.each do |m| %>
             <li class="item-list-detail shadow"><h3 class="card-title"><%= m.name %></h3></li>
         <% end %>
