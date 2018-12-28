@@ -6,4 +6,8 @@ class Material < ActiveRecord::Base
     has_many :users, through: :user_materials
     
     validates :name, presence: true
+    
+    def self.alphabetize
+        Material.all.sort_by { |obj| obj.name.downcase }
+    end
 end

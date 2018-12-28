@@ -2,13 +2,17 @@
     <div class="container">
         <div class="craft-card">
             <div class="display-flex">
-                <h1 class="">Craft Projects</h1>
+                <h1>Craft Projects</h1>
                 <%= link_to "Add a new craft project", new_craft_path, class: "button self-center ml-20" %>
             </div>
         </div>
         
         <% @crafts.each do |c| %>
-            <li class="item-list-detail shadow"><h3 class="card-title"><%= link_to c.title, craft_path(c.id), class: "underline" %></h3><div class="badge"><%= c.method %></div> </li>
+            <li class="item-list-detail shadow">
+                <svg class="mb-10" width="34" height="45" xmlns="http://www.w3.org/2000/svg"><path d="M29.75 5.625h-7.083C22.667 2.523 20.125 0 17 0s-5.667 2.523-5.667 5.625H4.25C1.903 5.625 0 7.514 0 9.844V40.78C0 43.111 1.903 45 4.25 45h25.5c2.347 0 4.25-1.889 4.25-4.219V9.844c0-2.33-1.903-4.219-4.25-4.219zm-.531 35.156H4.78a.53.53 0 0 1-.531-.527V10.37a.53.53 0 0 1 .531-.527H8.5v3.164c0 .582.476 1.055 1.063 1.055h14.874c.587 0 1.063-.473 1.063-1.055V9.844h3.719a.53.53 0 0 1 .531.527v29.883a.53.53 0 0 1-.531.527zM17 3.516c1.174 0 2.125.944 2.125 2.109s-.951 2.11-2.125 2.11a2.117 2.117 0 0 1-2.125-2.11c0-1.165.951-2.11 2.125-2.11z" fill="#000" fill-rule="nonzero" opacity=".254"/></svg>                
+                <h3 class="card-title"><%= link_to c.title, craft_path(c.id), class: "underline" %></h3>
+                <div class="badge"><%= c.method %></div>
+            </li>
         <% end %>
     </div>
 </ul>

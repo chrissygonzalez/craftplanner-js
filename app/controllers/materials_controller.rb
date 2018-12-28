@@ -1,6 +1,6 @@
 class MaterialsController < ApplicationController
     def index
-        @materials = Material.all
+        @materials = Material.alphabetize
     end
     
     def new

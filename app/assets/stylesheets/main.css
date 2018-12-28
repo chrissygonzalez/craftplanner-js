@@ -92,6 +92,14 @@ input[type=submit]:hover {
     margin-top: 50px;
 }
 
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
 .ml-20 {
     margin-left: 20px;
 }
@@ -225,7 +233,7 @@ td {
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .form-card {

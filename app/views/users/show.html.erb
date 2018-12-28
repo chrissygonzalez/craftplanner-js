@@ -1,8 +1,9 @@
 <div class="container">
     <div class="table-card mt-50">
         <h1>My Project Planner</h1>
-
         <h3>In Progress</h3>
+        
+        <% if @projects.incomplete.count > 0 %>
         <table class="shadow">
             <tr>
                 <th>Title</th>
@@ -30,9 +31,12 @@
             </tr>
             <% end %>
         </table>
+        <% else %>
+            <p class="mb-50">You don’t have anything in progress right now!</p>
+        <% end %>
         
-        <% if @projects.complete.count > 0 %>
         <h3>Completed</h3>
+        <% if @projects.complete.count > 0 %>
 
         <table class="shadow">
             <tr>
@@ -55,6 +59,8 @@
             </tr>
             <% end %>
         </table>
+        <% else %>
+            <p class="mb-50">You don’t have anything completed right now!</p>
         <% end %>
     </div>
 </div>
