@@ -17,7 +17,3 @@ Materials
 <%=     f.hidden_field :user_id, { :value => @user.id } %>
 <%=     f.submit "Start this project" %>
 <% end %>
-
-<%= form_for @craft, method: "delete" do |f| %>
-    <%=     f.submit "Delete this craft" %>
-<% end %>
