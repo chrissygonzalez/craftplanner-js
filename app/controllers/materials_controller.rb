@@ -8,9 +8,15 @@ class MaterialsController < ApplicationController
     end
     
     def create
-        @material = Material.create(material_params)
-        if !@material.valid?
-            render :new
+        # binding.pry
+        @material = Material.find_by name: params[:material][:name] ||= nil
+        if @material.nil?
+            @material = Material.create(material_params)
+            if !@material.valid?
+                render :new
+            else
+                redirect_to materials_path
+            end
         else
             redirect_to materials_path
         end
