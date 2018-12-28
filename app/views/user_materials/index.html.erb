@@ -9,11 +9,18 @@
             <tr>
                 <th>Name</th>
                 <th>Quantity</th>
+                <th>Actions</th>
             </tr>
             <% @user_materials.each do |um| %>
             <tr>
                 <td class="stash-row row"><%= um.material.name %></td>
                 <td class="stash-row row"><%= um.quantity %></td>
+                <td>
+
+                <%= form_for um, :url => user_user_material_path(@user.id, um.id), method: "delete" do |f| %>
+                    <%=     f.submit "Remove from stash" %>
+                <% end %>
+                </td>
             </tr>
             <% end %>
         </table>

@@ -10,7 +10,6 @@ class UserMaterialsController < ApplicationController
     end
     
     def create
-        # binding.pry
         @user_material = UserMaterial.create(user_material_params)
         
         if @user_material.valid?
@@ -20,6 +19,13 @@ class UserMaterialsController < ApplicationController
             @user_material.material = Material.new
             render :new
         end
+    end
+    
+    def destroy
+        # binding.pry
+        @user_material = UserMaterial.find(params[:id])
+        @user_material.delete
+        redirect_to user_user_materials_path(current_user.id)
     end
     
     private

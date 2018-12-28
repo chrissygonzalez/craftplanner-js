@@ -24,7 +24,6 @@ class ProjectsController < ApplicationController
     end
     
     def destroy
-        # binding.pry
         @project = Project.find(params[:project][:id])
         @project.delete
         redirect_to user_path(@project.user.id)
