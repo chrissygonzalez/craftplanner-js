@@ -6,28 +6,28 @@
 <%= render partial: "layouts/errors", locals: {object: @craft} %>
 
 <%= form_for @craft do |f| %>
-  <%= f.label "Title" %>
-  <%= f.text_field :title %><br>
-  <%= f.label "Description" %>
-  <%= f.text_area :description %><br>
-  <%= f.label "Method" %>
-  <%= f.text_field :method %><br>
-  <%= f.label "Link" %>
-  <%= f.text_field :source %><br>
-
-  <h3>Materials</h3><br>
+  <%= f.label "Title", class: "label" %>
+  <%= f.text_field :title, class: "width-60" %><br>
+  <%= f.label "Description", class: "label" %>
+  <%= f.text_area :description, class: "width-60" %><br>
+  <%= f.label "Method", class: "label" %>
+  <%= f.text_field :method, class: "width-60" %><br>
+  <%= f.label "Link", class: "label" %>
+  <%= f.text_field :source, class: "width-60" %><br>
+  
+  <h3 class="bordered">Materials</h3>
   <%= f.fields_for :craft_materials do |cm| %>
-    <%= cm.label "Name:" %>
-    <%= cm.select :material_id, Material.all.collect {|m| [m.name, m.id] }, include_blank: true %><br>
+  <div class="box">
+    <%= cm.label "Name", class: "label" %>
+    <%= cm.select :material_id, Material.all.collect {|m| [m.name, m.id] }, include_blank: true, :prompt => 'Choose a material' %><br>
     
       <%= cm.fields_for :material do |mat| %>
-        <p>Or add a new material
-        <%= mat.label "Name:" %>
-        <%= mat.text_field :name %></p>
+        <%= mat.label "Or enter a new material name", class: "label pt-20" %>
+        <%= mat.text_field :name, class: "width-100" %>
       <% end %>
-    
-    <%=  cm.label "Quantity" %>
-    <%=  cm.text_field :quantity %><br>
+    </div>
+    <%=  cm.label "Quantity", class: "label" %>
+    <%=  cm.text_field :quantity, class: "width-60" %><br>
   <% end %>
   
   <br>  
