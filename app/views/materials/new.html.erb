@@ -5,8 +5,8 @@
 <%= render partial: "layouts/errors", locals: {object: @material} %>
 
 <%= form_for @material do |f| %>
-    <%= f.label "name" %>
-    <%= f.text_field :name %>
+    <%= f.label "Name", class: "label" %>
+    <%= f.text_field :name, class: "width-60" %>
     <br>
   <%= f.submit %>
 <% end %>
