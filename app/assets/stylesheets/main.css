@@ -82,10 +82,22 @@ input[type=submit]:hover {
     display: inline;
 }
 
+.display-inline-block {
+    display: inline-block;
+}
+
 .shadow {
     -webkit-box-shadow: 0px 3px 14px -6px rgba(0,0,0,0.3);
     -moz-box-shadow: 0px 3px 14px -6px rgba(0,0,0,0.3);
     box-shadow: 0px 3px 14px -6px rgba(0,0,0,0.3);
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
 }
 
 .mt-50 {
@@ -98,6 +110,10 @@ input[type=submit]:hover {
 
 .mb-50 {
     margin-bottom: 50px;
+}
+
+.ml-10 {
+    margin-left: 10px;
 }
 
 .ml-20 {
@@ -124,6 +140,10 @@ input[type=submit]:hover {
     align-self: center;    
 }
 
+.red-text {
+    color: #db1d00;
+}
+
 /** FROM RAILS **/
 .edit_project {
     display: inline;
@@ -140,6 +160,10 @@ h1 {
 h3 {
     margin: 0;
     margin-bottom: 20px;
+}
+
+p {
+    line-height: 21px;
 }
 
 /* ERRORS */
@@ -254,6 +278,6 @@ td {
     background-color: #ffcccc;
 }
 
-.error-list {
+.disc-list {
     list-style-type: disc;
 }

@@ -1,19 +1,32 @@
-<h1><%= @craft.title %></h1> 
-<p style="background-color: #eaeaea"><%= @craft.method %></p>
-<%= link_to @craft.source, @craft.source %>
-<p><%= @craft.description %></p>
-Materials
-<ul>
-<% @craft.craft_materials.each do |m| %>
-<li>
-    <%= Material.find(m.material_id).name %> - 
-    <%= "Quantity: #{m.quantity}" %>
-    </li>
-<% end %>
+<div class="container">
+    <div class="form-card mt-50">
+     
+        <h1 class="display-inline-block mt-20"><%= link_to @craft.title, @craft.source, class: "red-text", target: "blank" %></h1> 
+        <div class="badge ml-10"><%= @craft.method %></div>
 
-</ul>
-<%= form_for @project, :url => user_projects_path(@user.id) do |f| %>
-<%=     f.hidden_field :craft_id, { :value => @craft.id } %>
-<%=     f.hidden_field :user_id, { :value => @user.id } %>
-<%=     f.submit "Start this project" %>
-<% end %>
+        <h3>Description</h3>
+        <p><%= @craft.description %></p>
+
+        <h3 class="mt-30">Materials</h3>
+        <table class="shadow">
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+            </tr>
+            
+        <% @craft.craft_materials.each do |m| %>
+            <tr>
+            <td class="stash-row row"><%= Material.find(m.material_id).name %></td>
+            <td class="stash-row row"><%= m.quantity %></td>
+            </tr>
+        <% end %>
+        </table>
+    
+        <%= form_for @project, :url => user_projects_path(@user.id) do |f| %>
+        <%=     f.hidden_field :craft_id, { :value => @craft.id } %>
+        <%=     f.hidden_field :user_id, { :value => @user.id } %>
+        <%=     f.submit "Start this project" %>
+        <% end %>
+
+    </div>
+</div>
