@@ -8,7 +8,6 @@ class MaterialsController < ApplicationController
     end
     
     def create
-        # binding.pry
         @material = Material.find_by name: params[:material][:name] ||= nil
         if @material.nil?
             @material = Material.create(material_params)

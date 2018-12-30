@@ -37,14 +37,6 @@ class CraftsController < ApplicationController
         redirect_to crafts_path
     end
     
-    def craft_materials_attributes=(craft_materials_attributes)
-        binding.pry
-    end
-    
-    def materials_attributes=(materials_attributes)
-        binding.pry
-    end
-    
     private
     
     def craft_params

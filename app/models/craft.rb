@@ -5,10 +5,10 @@ class Craft < ActiveRecord::Base
     has_many :users, through: :projects
     accepts_nested_attributes_for  :craft_materials, :reject_if => :all_blank
     
-    validates :title, presence: { message: "Title can't be blank."}
-    validates :description, presence: { message: "Description can't be blank."}
-    validates :method, presence: { message: "Method can't be blank."}
-    validates :source, presence: { message: "Source can't be blank."}
+    validates :title, presence: true
+    validates :description, presence: true
+    validates :method, presence: true
+    validates :source, presence: true
     validates_associated :craft_materials
     # validates_associated :materials
     # validates :craft_materials, presence: {message: "Craft material can't be blank."}

@@ -4,6 +4,6 @@ class CraftMaterial < ActiveRecord::Base
     
     accepts_nested_attributes_for :material, :reject_if => :all_blank
     
-    # validates :quantity, presence: { message: "Quantity can't be blank."}
+    validates :quantity, presence: true
     # validates :material_id, presence: { message: "Material can't be blank."}
 end

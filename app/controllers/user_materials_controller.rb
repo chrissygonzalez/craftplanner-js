@@ -15,14 +15,12 @@ class UserMaterialsController < ApplicationController
         if @user_material.valid?
             redirect_to user_user_materials_path
         else
-            # @user_material.material.clear
             @user_material.material = Material.new
             render :new
         end
     end
     
     def destroy
-        # binding.pry
         @user_material = UserMaterial.find(params[:id])
         @user_material.delete
         redirect_to user_user_materials_path(current_user.id)

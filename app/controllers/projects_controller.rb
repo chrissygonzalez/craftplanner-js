@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
    end
    
    def index
-        # binding.pry
        @projects = User.find(current_user.id).projects ||= nil
        @user = current_user
    end
@@ -17,7 +16,6 @@ class ProjectsController < ApplicationController
     end
     
     def update
-        # binding.pry
         @project = Project.find(params[:project][:id])
         @project.update(end_date: DateTime.now)
         redirect_to user_path(@project.user.id)
