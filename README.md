@@ -1,11 +1,11 @@
-### CraftPlanner
+## CraftPlanner
 
 CraftPlanner is a Ruby on Rails app for keeping track of future, completed, or in-progress craft projects, as well as craft materials you currently have in your stash. I built CraftPlanner as the final project for Learn.co's Rails section (blog post [here](https://chrissygonzalez.github.io/rails_at_last)).
 
+![Behold the CraftPlanner](https://i.imgur.com/8YU3yWB.jpg?1)
+
 ### How to Use
 CraftPlanner was built on Ruby 2.3.3 and uses Bundler to install gem dependencies. You'll probably need a similar set-up to get it to run correctly.
-
-![Behold the CraftPlanner](https://i.imgur.com/8YU3yWB.jpg?1)
 
 #### Installation
 1. First, clone or download this repo.
