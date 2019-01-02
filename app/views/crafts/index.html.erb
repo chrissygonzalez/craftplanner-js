@@ -1,3 +1,10 @@
+<%= form_tag("/crafts", method: "get") do %>
+<%=     label_tag "Filter by method", nil, class: "label" %>
+<%=     text_field_tag :method  %>
+<%=     submit_tag "Filter" %>
+<% end %>
+<%= link_to "Clear filters", crafts_path, class: "button" %>
+
 <ul class="item-list">
     <div class="container">
         <div class="craft-card">

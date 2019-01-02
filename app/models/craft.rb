@@ -13,4 +13,6 @@ class Craft < ActiveRecord::Base
     # validates_associated :materials
     # validates :craft_materials, presence: {message: "Craft material can't be blank."}
     
+    scope :knitting, -> { where(method: 'knitting') }
+    scope :filter, -> (method) { where("method like ?", "#{method}%")}
 end

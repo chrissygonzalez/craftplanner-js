@@ -1,6 +1,13 @@
 class CraftsController < ApplicationController
     def index
-        @crafts = Craft.all
+        # binding.pry can use the keyword like, and add avariable to the query. 
+        # add a nested new route where the number matters, something changes if number changes. can add material to existing craft.
+        # nested show. usermaterial show needs to use the user_id
+        if params[:method]
+            @crafts = Craft.filter(params[:method])
+        else
+            @crafts = Craft.all
+        end
     end
     
     def new
