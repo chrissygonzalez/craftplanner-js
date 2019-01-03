@@ -5,15 +5,17 @@
                 <div>
                     <h1 class="display-inline-block">Craft Projects</h1>
                     <% if @material %>
-                    <span class="red-text">using <%= @material.name %></span>
+                    <span class="red-text">using "<%= @material.name %>"</span>
                     <% end %>
                     <%= link_to "Add a new craft project", new_craft_path, class: "button self-center ml-20" %>
                 </div>
                 
-                <%= form_tag("/crafts", method: "get", class: "ml-20 mt-15") do %>
-                <%=     text_field_tag :method, nil, placeholder: "Filter by method", class: "p-5"  %>
-                <%=     submit_tag "Filter", class: "mr-0" %>
-                <%= link_to "Clear filters", crafts_path, class: "self-center button-gray" %>
+                <% if !@material %>
+                    <%= form_tag("/crafts", method: "get", class: "ml-20 mt-15") do %>
+                    <%=     text_field_tag :method, nil, placeholder: "Filter by method", class: "p-5"  %>
+                    <%=     submit_tag "Filter", class: "mr-0" %>
+                    <%= link_to "Clear filters", crafts_path, class: "self-center button-gray" %>
+                    <% end %>
                 <% end %>
 
             </div>
