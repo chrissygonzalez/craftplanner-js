@@ -6,8 +6,8 @@ class CraftsController < ApplicationController
         if params[:method]
             @crafts = Craft.filter(params[:method])
         elsif params[:material_id]
-        binding.pry
-            @crafts = Craft.has_material(:material_id)
+            @material = Material.find(params[:material_id])
+            @crafts = Craft.has_material(@material.name)
         else
             @crafts = Craft.all
         end

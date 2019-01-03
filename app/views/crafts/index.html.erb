@@ -4,6 +4,9 @@
             <div class="display-flex space-between">
                 <div>
                     <h1 class="display-inline-block">Craft Projects</h1>
+                    <% if @material %>
+                    <span class="red-text">using <%= @material.name %></span>
+                    <% end %>
                     <%= link_to "Add a new craft project", new_craft_path, class: "button self-center ml-20" %>
                 </div>
                 

@@ -15,5 +15,13 @@ class Craft < ActiveRecord::Base
     
     scope :knitting, -> { where(method: 'knitting') }
     scope :filter, -> (method) { where("method like ?", "#{method}%")}
-    scope :has_material, -> (material) { where(material: material)}
+    # scope :has_material, -> (material) { where(material: material)}
+    
+    def self.has_liberty
+        joins(:materials).where(materials: {name: "Liberty Lawn"})
+    end
+    
+    def self.has_material(material_name)
+        joins(:materials).where(materials: {name: material_name})
+    end
 end
