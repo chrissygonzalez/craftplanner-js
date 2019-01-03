@@ -8,11 +8,15 @@
         <table class="shadow">
             <tr>
                 <th>Name</th>
+                <th>Find Crafts</th>
             </tr>
         <% @materials.each do |m| %>
             <tr>
                 <td class="stash-row row">
                     <%= m.name %>
+                </td>
+                <td>
+                    <%= link_to "Show crafts", material_crafts_path(m.id), class: "button-gray display-inline-block" %>
                 </td>
             </tr>
         <% end %>

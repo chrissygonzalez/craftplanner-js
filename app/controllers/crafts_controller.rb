@@ -5,6 +5,9 @@ class CraftsController < ApplicationController
         # nested show. usermaterial show needs to use the user_id
         if params[:method]
             @crafts = Craft.filter(params[:method])
+        elsif params[:material_id]
+        binding.pry
+            @crafts = Craft.has_material(:material_id)
         else
             @crafts = Craft.all
         end

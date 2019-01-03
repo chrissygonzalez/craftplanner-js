@@ -15,4 +15,5 @@ class Craft < ActiveRecord::Base
     
     scope :knitting, -> { where(method: 'knitting') }
     scope :filter, -> (method) { where("method like ?", "#{method}%")}
+    scope :has_material, -> (material) { where(material: material)}
 end
