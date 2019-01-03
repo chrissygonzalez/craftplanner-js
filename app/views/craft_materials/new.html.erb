@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="form-card mt-50">
+        <h1>Add a material to <%= @craft.title %></h1>
+        
+        <%= render partial: "layouts/errors", locals: {object: @craft_material} %>
+
+        <%= form_for @craft_material, :url => craft_craft_materials_path do |cm| %>
+    
+         <%= cm.hidden_field :craft_id, { :value => @craft.id } %>
+      
+          <div class="box">
+              <%= cm.label "Name", class: "label" %>
+              <%= cm.select :material_id, Material.all.collect {|m| [m.name, m.id] }, include_blank: true, :prompt => 'Choose a material' %><br>
+    
+              <%= cm.fields_for :material do |mat| %>
+                <%= mat.label "Or enter a new material name", class: "label pt-20" %><br>
+                <%= mat.text_field :name, class: "width-100" %>
+              <% end %>
+          </div>
+      
+      <div>
+      <%= cm.label "Quantity", class: "label" %><br>
+      <%= cm.text_field :quantity, class: "width-60" %>
+      </div>
+  <%= cm.submit "Add to Craft" %>
+    <% end %>
+    </div>
+</div>
