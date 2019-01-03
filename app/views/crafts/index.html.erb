@@ -1,16 +1,18 @@
-<%= form_tag("/crafts", method: "get") do %>
-<%=     label_tag "Filter by method", nil, class: "label" %>
-<%=     text_field_tag :method  %>
-<%=     submit_tag "Filter" %>
-<% end %>
-<%= link_to "Clear filters", crafts_path, class: "button" %>
-
 <ul class="item-list">
     <div class="container">
         <div class="craft-card">
-            <div class="display-flex">
-                <h1>Craft Projects</h1>
-                <%= link_to "Add a new craft project", new_craft_path, class: "button self-center ml-20" %>
+            <div class="display-flex space-between">
+                <div>
+                    <h1 class="display-inline-block">Craft Projects</h1>
+                    <%= link_to "Add a new craft project", new_craft_path, class: "button self-center ml-20" %>
+                </div>
+                
+                <%= form_tag("/crafts", method: "get", class: "ml-20 mt-15") do %>
+                <%=     text_field_tag :method, nil, placeholder: "Filter by method", class: "p-5"  %>
+                <%=     submit_tag "Filter", class: "mr-0" %>
+                <%= link_to "Clear filters", crafts_path, class: "self-center button-gray" %>
+                <% end %>
+
             </div>
         </div>
         
