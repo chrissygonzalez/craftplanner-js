@@ -62,5 +62,22 @@
         <% else %>
             <p class="mb-50">You don’t have anything completed right now!</p>
         <% end %>
+
+        <h1>Browse Projects</h1>
+        <div id="projects_list"></div>
     </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+// TODO: move this script to a separate file, create JS objects from JSON
+// Better craft list formatting
+// Add link to full show here, show full project with actions, etc.
+    const div = document.getElementById("projects_list");
+    const fetchPromise = fetch('../crafts.json');
+    fetchPromise.then(response => {
+        return response.json();
+    }).then(crafts => {
+        const list = crafts.map(craft => `${craft.title} (${craft.method})`).join("\n");
+        div.innerHTML = list;
+    });
+</script>

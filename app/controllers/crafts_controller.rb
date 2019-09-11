@@ -10,6 +10,10 @@ class CraftsController < ApplicationController
             @crafts = Craft.has_material(@material.name)
         else
             @crafts = Craft.all
+            respond_to do |format|
+                format.html { render :index }
+                format.json { render json: @crafts, status: 200 }
+              end
         end
     end
     

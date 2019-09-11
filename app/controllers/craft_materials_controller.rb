@@ -10,7 +10,7 @@ class CraftMaterialsController < ApplicationController
         if @craft_material.valid?
             redirect_to craft_path(@craft_material.craft.id)
         else
-            binding.pry
+            # binding.pry
             @craft = Craft.find(params[:craft_id])
             # @craft_material = CraftMaterial.new
             @craft_material.build_material
