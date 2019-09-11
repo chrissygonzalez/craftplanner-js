@@ -1,4 +1,8 @@
-## CraftPlanner
+## CraftPlanner-JS
+
+Update in progress, old README below:
+
+---------
 
 CraftPlanner is a Ruby on Rails app for keeping track of future, completed, or in-progress craft projects, as well as craft materials you currently have in your stash. I built CraftPlanner as the final project for Learn.co's Rails section (blog post [here](https://chrissygonzalez.github.io/rails_at_last)).
 
