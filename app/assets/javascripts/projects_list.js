@@ -18,31 +18,30 @@ function listOfCrafts(crafts) {
             <div id="craft-${craft.id}"></div>
         </li>`
         ).join("\n");
-        // console.log(list);
     return `<ul class="pl-0">${list}</ul>`;
 }
 
 function addCraftDetailsLinks(coll){
-    // coll.map(item => console.log(item));
-    // console.log(coll[0]);
     const collArr = Array.from(coll);
     collArr.map(link => {
-        // console.log(link.dataset.id);
         link.addEventListener('click', (e) => { 
             e.preventDefault()
             getCraftDetails(link.dataset.id);
         });
     });
-
-    coll[0].addEventListener('click', (e) => { 
-        e.preventDefault()
-        getCraftDetails(1);
-    });
 }
 
 function getCraftDetails(id){
     const div = document.getElementById('craft-' + id);
-    div.innerHTML = id;
+
+    const fetchDetails = fetch(`../crafts/${id}.json`);
+    fetchDetails.then(response => {
+        return response.json();
+    }).then(craft => {
+        // console.log(craft);
+        div.innerHTML = `<p>${craft.description}</p>`;
+    });
+
 }
 
 document.addEventListener("DOMContentLoaded", function(){
