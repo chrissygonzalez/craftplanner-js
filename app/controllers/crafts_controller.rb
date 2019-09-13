@@ -10,7 +10,7 @@ class CraftsController < ApplicationController
             respond_to do |format|
                 format.html { render :index }
                 format.json { render json: @crafts, status: 200 }
-              end
+            end
         end
     end
     
@@ -40,6 +40,11 @@ class CraftsController < ApplicationController
         @project = Project.new(user_id: current_user.id)
         @user = current_user
         @craft = Craft.find(params[:id])
+
+        respond_to do |format|
+            format.html { render :show }
+            format.json { render json: @craft, status: 200 }
+        end
     end
     
     def destroy

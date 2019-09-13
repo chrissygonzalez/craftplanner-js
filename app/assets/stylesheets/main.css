@@ -135,6 +135,10 @@ select {
     padding-top: 20px;
 }
 
+.pl-0 {
+    padding-left: 0;
+}
+
 .mt-15 {
     margin-top: 15px;
 }
@@ -357,4 +361,11 @@ td {
 
 .disc-list {
     list-style-type: disc;
+}
+
+/** JAVASCRIPT ADDITIONS **/
+.find-project-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
 }
