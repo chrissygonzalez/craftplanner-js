@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require projects_list
+//= require crafts_list
 //= require rails-ujs
 //= require activestorage
 // require turbolinks
