@@ -28,22 +28,11 @@ function getList(){
 }
 
 function listOfCrafts(crafts) {
-    crafts.map(craft => {
+    let items = crafts.map(craft => {
         let item = new Craft(craft);
-        console.log(item.formatCraftListItem());
-    });
-
-    // crafts.map(craft => {
-    //     console.log(craft.method);
-    // });
-
-    const list = crafts.map(craft => 
-        `<li class="pt-20 red-text">
-            ${craft.title} (${craft.method}) <a data-id="${craft.id}" href="../crafts/${craft.id}.json" class="underline">See details</a>
-            <div id="craft-${craft.id}"></div>
-        </li>`
-        ).join("\n");
-    return `<ul class="pl-0">${list}</ul>`;
+        return item.formatCraftListItem();
+    }).join("\n");
+    return `<ul class="pl-0">${items}</ul>`;
 }
 
 function addCraftDetailsLinks(coll){
