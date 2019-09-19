@@ -7,9 +7,10 @@ class Craft {
     }
 
     formatCraftListItem() {
-        return `<li class="pt-20 red-text">
-            ${this.title} (${this.method}) <a data-id="${this.id}" id="link-${this.id}" href="../crafts/${this.id}.json" class="underline">Show details</a>
+        return `<li class="pt-20">
+            <span class="red-text">${this.title} (${this.method})</span> <a data-id="${this.id}" id="link-${this.id}" class="toggle" href="../crafts/${this.id}.json" class="underline">Show details</a>
             <div id="craft-${this.id}"></div>
+            <a href="../crafts/${this.id}" id="button-${this.id}" class="button-gray display-none">See full description</a>
         </li>`;
     }
 }
@@ -22,7 +23,7 @@ function getList(){
             return response.json();
         }).then(crafts => {
             craftsList.innerHTML = listOfCrafts(crafts);
-            addCraftDetailsLinks(craftsList.getElementsByTagName('a'));
+            addCraftDetailsLinks(craftsList.getElementsByClassName('toggle'));
         });
     }
 }
@@ -40,14 +41,15 @@ function addCraftDetailsLinks(coll){
     collArr.map(link => {
         link.addEventListener('click', (e) => { 
             e.preventDefault()
-            getCraftDetails(link.dataset.id);
+            toggleCraftDetails(link.dataset.id);
         });
     });
 }
 
-function getCraftDetails(id){
+function toggleCraftDetails(id){
     const div = document.getElementById('craft-' + id);
     const link = document.getElementById('link-' + id);
+    const btn = document.getElementById('button-' + id);
     const fetchDetails = fetch(`../crafts/${id}.json`);
     
     if (div.innerHTML === "") {
@@ -56,10 +58,12 @@ function getCraftDetails(id){
         }).then(craft => {
             div.innerHTML = `<p>${craft.description}</p>`;
             link.innerHTML = 'Hide details';
+            btn.classList.replace('display-none', 'display-inline-block');
         });
     } else {
         div.innerHTML = "";
         link.innerHTML = 'Show details';
+        btn.classList.replace('display-inline-block', 'display-none');
     }
 
 }
