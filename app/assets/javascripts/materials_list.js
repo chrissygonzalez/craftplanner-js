@@ -26,9 +26,20 @@ function addCraftListLinks(){
         btnArr.map(item => {
             item.addEventListener('click', (e) => { 
                 e.preventDefault()
-                getMaterialCraftList(item.dataset.id);
+                toggleMaterialCrafts(item.dataset.id);
             });
         });
+    }
+}
+
+function toggleMaterialCrafts(id){
+    const div = document.getElementById(`material-${id}`);
+    if (div.innerHTML === "") {
+        getMaterialCraftList(id);
+        document.getElementById(`button-${id}`).innerHTML = 'Hide crafts';
+    } else {
+        div.innerHTML = "";
+        document.getElementById(`button-${id}`).innerHTML = 'Show crafts';
     }
 }
 
