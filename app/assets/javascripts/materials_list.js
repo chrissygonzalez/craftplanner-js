@@ -14,6 +14,10 @@ var Craft = class {
             <a href="../crafts/${this.id}" id="button-${this.id}" class="button-gray display-none">See full description</a>
         </li>`;
     }
+
+    formatMaterialCraftListItem(){
+        return `<a href="../crafts/${this.id}" class="underline">${this.title}</a>`;
+    }
 }
 
 function addCraftListLinks(){
@@ -30,8 +34,8 @@ function addCraftListLinks(){
 
 function getMaterialCraftList(id){
     const div = document.getElementById(`material-${id}`);
-
     const fetchPromise = fetch(`../materials/${id}.json`);
+
     fetchPromise.then(response => {
         return response.json();
     }).then(material => {
@@ -43,7 +47,8 @@ function getMaterialCraftList(id){
 function formatMaterialCraftList(crafts){
     let craftArr = [];
     crafts.map(craft => {
-        craftArr.push(craft.title);
+        let item = new Craft(craft);
+        craftArr.push(item.formatMaterialCraftListItem());
     });
     return craftArr.join(", ");
 }
