@@ -4,6 +4,7 @@ var Craft = class {
         this.title = obj.title;
         this.method = obj.method;
         this.description = obj.description;
+        this.materials = obj.materials;
     }
 
     formatCraftListItem() {
@@ -29,6 +30,7 @@ function getList(){
 }
 
 function listOfCrafts(crafts) {
+    console.log(crafts);
     let items = crafts.map(craft => {
         let item = new Craft(craft);
         return item.formatCraftListItem();

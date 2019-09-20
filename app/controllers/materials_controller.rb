@@ -1,6 +1,10 @@
 class MaterialsController < ApplicationController
     def index
         @materials = Material.alphabetize
+        respond_to do |format|
+            format.html { render :index }
+            format.json { render json: @materials, status: 200 }
+        end
     end
     
     def new
@@ -19,6 +23,11 @@ class MaterialsController < ApplicationController
         else
             redirect_to materials_path
         end
+    end
+
+    def show
+        @material = Material.find(params[:id])
+        render json: @material, include: ['crafts'], status: 200
     end
     
     private
