@@ -240,6 +240,14 @@ p {
     width: 60%;
 }
 
+.smaller {
+    font-size: 85%;
+}
+
+.italic {
+    font-style: italic;
+}
+
 /* ERRORS */
 .center {
     text-align: center;

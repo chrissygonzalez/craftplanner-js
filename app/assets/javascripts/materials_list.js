@@ -16,7 +16,7 @@ var Craft = class {
     }
 
     formatMaterialCraftListItem(){
-        return `<a href="../crafts/${this.id}" class="underline">${this.title}</a>`;
+        return `<a href="../crafts/${this.id}" class="underline red-text">${this.title}</a>`;
     }
 }
 
@@ -51,7 +51,7 @@ function getMaterialCraftList(id){
         return response.json();
     }).then(material => {
         const list = formatMaterialCraftList(material.crafts);
-        div.innerHTML = list;
+        div.innerHTML = `Used in ${list}`;
     });
 }
 
