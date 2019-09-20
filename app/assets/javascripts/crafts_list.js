@@ -1,4 +1,4 @@
-class Craft {
+var Craft = class {
     constructor(obj){
         this.id = obj.id;
         this.title = obj.title;
