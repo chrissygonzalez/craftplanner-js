@@ -14,9 +14,10 @@
             <tr>
                 <td class="stash-row row">
                     <%= m.name %>
+                    <div id="material-<%= m.id %>"></div>
                 </td>
                 <td class="row">
-                    <%= link_to "Show crafts", material_crafts_path(m.id), class: "button-gray display-inline-block" %>
+                    <a href="<%= material_crafts_path(m.id) %>" class="button-gray display-inline-block craft-btn" data-id=<%= m.id %> >Show crafts</a>
                 </td>
             </tr>
         <% end %>
@@ -25,3 +26,4 @@
 </div>
 
 <!-- TODO: List crafts per material here using JSON >
+<%= javascript_include_tag "materials_list" %>

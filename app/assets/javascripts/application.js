@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require crafts_list
+//= require materials_list
 //= require rails-ujs
 //= require activestorage
 // require turbolinks
