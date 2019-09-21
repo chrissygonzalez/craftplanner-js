@@ -12,6 +12,7 @@
 //
 //= require crafts_list
 //= require materials_list
+//= require new_user_material
 //= require rails-ujs
 //= require activestorage
 // require turbolinks

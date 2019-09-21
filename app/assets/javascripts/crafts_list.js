@@ -30,7 +30,6 @@ function getList(){
 }
 
 function listOfCrafts(crafts) {
-    console.log(crafts);
     let items = crafts.map(craft => {
         let item = new Craft(craft);
         return item.formatCraftListItem();

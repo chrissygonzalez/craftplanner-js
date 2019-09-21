@@ -4,7 +4,7 @@
 
 <%= render partial: "layouts/errors", locals: {object: @user_material} %>
 
-<%= form_for @user_material, :url => user_user_materials_path do |um| %>
+<%= form_for @user_material, :url => user_user_materials_path, :html => {:id => "new-user-material"} do |um| %>
       <%= um.hidden_field :user_id, { :value => current_user.id } %>
       
       <div class="box">
@@ -25,3 +25,5 @@
 <% end %>
 </div>
 </div>
+
+<%= javascript_include_tag "new_user_material" %>
