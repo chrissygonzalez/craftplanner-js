@@ -1,32 +1,16 @@
-var UserMaterial = class {
-    constructor(obj){
-        this.id = obj.id;
-        this.title = obj.title;
-        this.method = obj.method;
-        this.description = obj.description;
-        this.materials = obj.materials;
-    }
-
-    formatCraftListItem() {
-        return `<li class="pt-20">
-            <span class="red-text">${this.title} (${this.method})</span> <a data-id="${this.id}" id="link-${this.id}" class="toggle" href="../crafts/${this.id}.json" class="underline">Show details</a>
-            <div id="craft-${this.id}"></div>
-            <a href="../crafts/${this.id}" id="button-${this.id}" class="button-gray display-none">See full description</a>
-        </li>`;
-    }
-}
-
 function listenForFormSubmit(){
-    const form = document.getElementById('new-user-material');
-    form.addEventListener('submit', createNewUserMaterial);
+    if (document.getElementById('new-user-material')) {
+        const form = document.getElementById('new-user-material');
+        form.addEventListener('submit', createNewUserMaterial);
+    }
 }
 
 function createNewUserMaterial(e){
     e.preventDefault();
     const form = document.getElementById('new-user-material');
-    const FD = new FormData(form);
-    console.log(FD.keys());
-    // console.log("Hello from new user material!");
+    const request = new XMLHttpRequest();
+    request.open("POST", '../user_materials');
+    request.send(new FormData(form));
 }
 
 document.addEventListener("DOMContentLoaded", function(){
