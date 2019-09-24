@@ -3,6 +3,8 @@
 <h1>Add a material to your stash</h1>
 
 <%= render partial: "layouts/errors", locals: {object: @user_material} %>
+<div id="error_explanation" class="display-none"></div>
+<div id="success" class="display-none"></div>
 
 <%= form_for @user_material, :url => user_user_materials_path, :html => {:id => "new-user-material"} do |um| %>
       <%= um.hidden_field :user_id, { :value => current_user.id } %>

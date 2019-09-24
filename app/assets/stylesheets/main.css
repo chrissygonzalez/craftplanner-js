@@ -366,6 +366,13 @@ td {
     background-color: #f7f7f7;
 }
 
+#success {
+    padding: 2px 20px;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    background-color: #bbe8c9;
+}
+
 /** ERRORS **/
 #error_explanation {
     /*border: 1px solid #f44242;*/
