@@ -28,8 +28,12 @@ function getMaterialCraftList(id){
     fetchPromise.then(response => {
         return response.json();
     }).then(material => {
-        const list = formatMaterialCraftList(material.crafts);
-        div.innerHTML = `Used in ${list}`;
+        if (material.crafts.length) {
+            const list = formatMaterialCraftList(material.crafts);
+            div.innerHTML = `Used in ${list}`;
+        } else {
+            div.innerHTML = "Not used in any crafts yet.";
+        }
     });
 }
 
