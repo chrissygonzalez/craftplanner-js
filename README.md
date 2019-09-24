@@ -1,6 +1,6 @@
 ## CraftPlanner-JS
 
-CraftPlanner-JS is a Ruby on Rails app for keeping track of craft projects and craft materials with a few, new front-end Javascript enhancements. I added the Javascript as the final project for Learn.co's Rails and Javascript section section (blog post [here](https://chrissygonzalez.github.io/rails_at_last)).
+CraftPlanner-JS is a Ruby on Rails app for keeping track of craft projects and craft materials, with a few new front-end Javascript enhancements. I added the Javascript as the final project for Learn.co's Rails and Javascript section (blog post [here](https://chrissygonzalez.github.io/getting_javascripty)).
 
 ![Browse Crafts](https://i.imgur.com/VxytLoH.gif)
 
