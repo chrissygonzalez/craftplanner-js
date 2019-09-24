@@ -3,8 +3,6 @@
 CraftPlanner-JS is a Ruby on Rails app for keeping track of craft projects and craft materials with a few, new front-end Javascript enhancements. I added the Javascript as the final project for Learn.co's Rails and Javascript section section (blog post [here](https://chrissygonzalez.github.io/rails_at_last)).
 
 ![Browse Crafts](https://i.imgur.com/VxytLoH.gif)
-![Show Related Projects](https://i.imgur.com/b8oOBW4.gif)
-![Add to Stash](https://i.imgur.com/UMb0wYT.gif)
 
 ### How to Use
 CraftPlanner was built on Ruby 2.3.3 and uses Bundler to install gem dependencies. You'll probably need a similar set-up to get it to run correctly.
@@ -26,6 +24,6 @@ CraftPlanner was built on Ruby 2.3.3 and uses Bundler to install gem dependencie
 7. Enjoy your craftiness!
 
 #### Javascript Enhancements
-1. At the bottom of the Project Planner page, Craft descriptions and links are now available for browsing.
-2. On the Materials page, the Show Crafts button reveals a list of crafts using that material inline.
-3. On the Add to my stash form, see immediate feedback that an item has been added.
+1. At the bottom of the Project Planner page, Craft descriptions and links are now [available for browsing](https://i.imgur.com/VxytLoH.gif).
+2. On the Materials page, the Show Crafts button reveals a [list of crafts](https://i.imgur.com/b8oOBW4.gif) using that material inline.
+3. On the Add to my stash form, see [immediate feedback](https://i.imgur.com/UMb0wYT.gif) that an item has been added.
