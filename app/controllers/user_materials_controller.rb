@@ -10,7 +10,6 @@ class UserMaterialsController < ApplicationController
     end
     
     def create
-        # binding.pry
         @user_material = UserMaterial.create(user_material_params)
         
         if @user_material.valid?

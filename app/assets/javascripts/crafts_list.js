@@ -59,7 +59,6 @@ function addSortButtonListener(){
     if(document.getElementById("sort-button")) {
         const btn = document.getElementById('sort-button');
         btn.addEventListener('click', (e) => {
-            console.log('here');
             getAlphaCraftList();
         });
     }
