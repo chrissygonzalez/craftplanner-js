@@ -1,14 +1,18 @@
 function getList(){
     if(document.getElementById("crafts_list")) {
-        const craftsList = document.getElementById("crafts_list");
         const fetchPromise = fetch('../crafts.json');
         fetchPromise.then(response => {
             return response.json();
         }).then(crafts => {
-            craftsList.innerHTML = listOfCrafts(crafts);
-            addCraftDetailsLinks(craftsList.getElementsByClassName('toggle'));
+            displayCraftsWithListeners(crafts);
         });
     }
+}
+
+function displayCraftsWithListeners(crafts){
+    const craftsList = document.getElementById("crafts_list");
+    craftsList.innerHTML = listOfCrafts(crafts);
+    addCraftDetailsLinks(craftsList.getElementsByClassName('toggle'));
 }
 
 function listOfCrafts(crafts) {
@@ -51,6 +55,44 @@ function toggleCraftDetails(id){
 
 }
 
+function addSortButtonListener(){
+    if(document.getElementById("sort-button")) {
+        const btn = document.getElementById('sort-button');
+        btn.addEventListener('click', (e) => {
+            console.log('here');
+            getAlphaCraftList();
+        });
+    }
+}
+
+function getAlphaCraftList(){
+    const craftsList = document.getElementById("crafts_list");
+    const fetchPromise = fetch('../crafts.json');
+    fetchPromise.then(response => {
+        return response.json();
+    }).then(crafts => {
+        alphaSortCrafts(crafts);
+        displayCraftsWithListeners(crafts);
+    });
+}
+
+function alphaSortCrafts(crafts){
+    return crafts.sort(function(a, b) {
+        var nameA = a.title.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.title.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+      
+        // names must be equal
+        return 0;
+      });
+}
+
 document.addEventListener("DOMContentLoaded", function(){
     getList();
+    addSortButtonListener();
 });

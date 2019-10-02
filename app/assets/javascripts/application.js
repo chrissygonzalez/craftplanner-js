@@ -10,11 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require Craft
 //= require crafts_list
 //= require materials_list
 //= require new_user_material
 //= require rails-ujs
 //= require activestorage
 // require turbolinks
-//= require_tree .
+// require_tree .
 
