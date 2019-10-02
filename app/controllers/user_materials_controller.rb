@@ -10,6 +10,7 @@ class UserMaterialsController < ApplicationController
     end
     
     def create
+        #TODO: consolidate by material instead of duplicating
         @user_material = UserMaterial.create(user_material_params)
         
         if @user_material.valid?
