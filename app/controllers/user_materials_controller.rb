@@ -11,14 +11,8 @@ class UserMaterialsController < ApplicationController
     
     def create
         #TODO: consolidate by material instead of duplicating
-        @user_material = UserMaterial.create(user_material_params)
-        
-        if @user_material.valid?
-            redirect_to user_user_materials_path
-        else
-            @user_material.material = Material.new
-            render :new
-        end
+        user_material = UserMaterial.create(user_material_params)
+        render json: {name: user_material.material.name, quantity: user_material.quantity}
     end
     
     def destroy

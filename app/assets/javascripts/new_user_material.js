@@ -18,17 +18,18 @@ function createNewUserMaterial(e){
         fetch("../user_materials", {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-Token': Rails.csrfToken()
+                'X-CSRF-Token': Rails.csrfToken(),
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(newMaterial)
         })
+        .then(response => {
+            return response.json();
+        })
         .then(data => {
-            if (data.ok) {
-                displayMessage(successDiv, 'Material added to your stash!');
-            }
+            displayMessage(successDiv, `Added ${data.quantity} of ${data.name} to your stash!`);
         }).catch(err => {
-            displayMessage(errorDiv, err);
+            displayMessage(errorDiv, err);  
         })
     }
 }
@@ -65,8 +66,7 @@ function getNewUserMaterialObject(){
         user_id: user_id_value,
         material_id: selected,
         material_attributes: {
-            name: material_value,
-            quantity: quantity_value
+            name: material_value
         },
         quantity: quantity_value
     };
